@@ -5,7 +5,10 @@ def uppercase(str):
         if ord(str[i]) >= 97 and ord(str[i]) <= 122:
             letter = chr(ord(str[i]) - 32)
         else:
-            letter = str[i]
+            if str[i] == "\"" or str[i] == "'":
+                letter = "\\" + str[i]
+            else:
+                letter = str[i]
         if i == len(str) - 1:
             print("{}".format(letter))
             break
